@@ -8,7 +8,9 @@ const connectDB = () => {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
+
         console.log('Mongo DB connected in the Try function :D');
+        //
     } catch (error) {
         console.error(err.message);
         process.exit(1);
