@@ -3,16 +3,16 @@ const config = require('config');
 const db = config.get('mongoURI');
 
 const connectDB = () => {
-    mongoose
-        .connect(db, {
+    try {
+        mongoose.connect(db, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-        })
-        .then(() => console.log('MongoDB connected 💻'))
-        .catch(err => {
-            console.error(err.message);
-            process.exit(1);
         });
+        console.log('Mongo DB connected in the Try function :D');
+    } catch (error) {
+        console.error(err.message);
+        process.exit(1);
+    }
 };
 
 module.exports = connectDB;
