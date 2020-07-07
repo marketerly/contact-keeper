@@ -35,7 +35,7 @@ const ContactForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     if (current === null) {
-      contactContext.addContact(contact);
+      addContact(contact);
     } else {
       updateContact(contact);
     }
@@ -45,6 +45,7 @@ const ContactForm = () => {
       phone: '',
       type: 'personal',
     });
+    clearCurrent(); // this was added by me, Taha, because I wanted the form to reset after updating the contact
   };
 
   const clearAll = () => {
